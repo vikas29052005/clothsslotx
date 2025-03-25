@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlotX Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #333, #555);
+            padding: 15px 30px;
+            color: white;
+            font-size: 1em;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+        .navbar a:hover {
+            background: #ff6600;
+            border-radius: 5px;
+        }
+        .store {
+            text-align: center;
+            padding: 20px;
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            justify-content: center;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .product-card img {
+            width: 100px;
+            height: auto;
+        }
+        .product-card h3 {
+            font-size: 1em;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .add-to-cart {
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+        .add-to-cart:hover {
+            background: #cc5500;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div><strong>SlotX</strong></div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About</a>
+            <a href="store.html">Store</a>
+            <a href="contactus.html">Contact</a>
+            <a href="cart.html">Cart</a>
+        </div>
+    </div>
+
+    <section class="store">
+        <h1>Our Store</h1>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="images/denim jeans.png" alt="Denim Jeans">
+                <h3>Amazon Brand - Symbol Men Cotton Rich Stretchable Jeans</h3>
+                <p>$75.99</p>
+                <button class="add-to-cart" onclick="addToCart('Denim Jeans', 75.99, 'images/denim jeans.png')">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="images/white shirt.png" alt="White Shirt">
+                <h3>Symbol Premium Men's Cotton Non-Iron Formal Shirt</h3>
+                <p>$50.99</p>
+                <button class="add-to-cart" onclick="addToCart('White Shirt', 50.99, 'images/white shirt.png')">Add to Cart</button>
+            </div>
+           <div class="product-card">
+                <img src="images/suit 2.png" alt="Suit">
+                <h3>Arrow Men's Polyester Reversible Waistcoat Regular Fit Suit</h3>
+                <p>$66.99</p>
+               <button class="add-to-cart" onclick="addToCart('Suit', 66.99, 'images/suit 2.png')">Add to Cart</button>
+            </div>
+          <div class="product-card">
+                <img src="images/Screenshot 2025-03-22 230355.png" alt="Jeans">
+                <h3>London Hills Men Jeans || Relaxed Pants || Denim Baggy Jeans</h3>
+                <p>$45.99</p>
+                <button class="add-to-cart" onclick="addToCart('Jeans', 45.99, 'images/Screenshot 2025-03-22 230355.png')">Add to Cart</button>
+            </div>
+
+
+            <div class="product-card">
+                <img src="images/ho1.png" alt="Hoodie">
+                <h3>ADRO Hoodies for Men</h3>
+                <p>$26.99</p>
+                <button class="add-to-cart" onclick="addToCart('ADRO Hoodie', 26.99, 'images/ho1.png')">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="images/ho2.png" alt="Hoodie">
+                <h3>Trillion Regular Fit Printed Hoodie</h3>
+                <p>$55.99</p>
+                <button class="add-to-cart" onclick="addToCart('Trillion Hoodie', 55.99, 'images/ho2.png')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function addToCart(productName, productPrice, productImage) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let existingItem = cart.find(item => item.name === productName);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: productName, price: productPrice, quantity: 1, image: productImage });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // Redirect to cart page
+            window.location.href = "cart.html";
+        }
+    </script>
+</body>
+</html>
+

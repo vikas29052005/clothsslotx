@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlotX - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            overflow-x: hidden;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #333, #555);
+            padding: 20px 40px;
+            color: white;
+            font-size: 1.2em;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            transition: all 0.3s ease-in-out;
+        }
+        .navbar a:hover {
+            background: #ff6600;
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+        .header {
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+            font-size: 2.5em;
+            background: url('fashion-banner.jpg') no-repeat center/cover;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: #ff6600;
+            color: white;
+            font-size: 1.2em;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+        }
+        .cta-button:hover {
+            background: #cc5500;
+            transform: scale(1.1);
+        }
+        .featured-products {
+            text-align: center;
+            padding: 60px;
+            background: white;
+        }
+        .product {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover {
+            transform: scale(1.1);
+        }
+        .product img {
+            width: 220px;
+            height: 270px;
+            border-radius: 10px;
+        }
+        .quality {
+            padding: 50px;
+            text-align: center;
+            background: #ff6600;
+            color: white;
+            font-size: 1.4em;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-in-out;
+        }
+        .quality.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: #333;
+            color: white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">SLOTX</a>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About</a>
+            <a href="store.html">Store</a>
+            <a href="contactus.html">Contact</a>
+            <a href="cart.html">Cart</a>
+        </div>
+    </div>
+    <div class="header">Fashion that Defines You. Style that Inspires.<br>
+        <a href="store.html" class="cta-button">Shop Now</a>
+    </div>
+    <div class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product">
+            <img src="images/tshirt whi.png" alt="Trendy T-Shirt">
+            <p><strong>Trendy T-Shirt</strong><br>Soft, stylish, and comfortable. Perfect for any occasion.</p>
+        </div>
+        <div class="product">
+            <img src="images/denim jeans.png" alt="Denim Jeans">
+            <p><strong>Denim Jeans</strong><br>Premium quality, perfect fit, and lasting comfort.</p>
+        </div>
+        <div class="product">
+            <img src="images/hoodie.png" alt="Classic Hoodie">
+            <p><strong>Classic Hoodie</strong><br>Stay warm and stylish with our cozy hoodies.</p>
+        </div>
+    </div>
+    <div class="quality">✨ Quality You Can Trust - Fabrics That Feel Like Luxury! ✨</div>
+    <div class="footer">&copy; 2025 SlotX - Your Fashion Destination</div>
+    <script>
+        window.addEventListener('scroll', function() {
+            var qualitySection = document.querySelector('.quality');
+            var position = qualitySection.getBoundingClientRect().top;
+            var screenPosition = window.innerHeight / 1.2;
+            if(position < screenPosition) {
+                qualitySection.classList.add('show');
+            }
+        });
+    </script>
+</body>
+</html>
+
